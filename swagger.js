@@ -1,4 +1,5 @@
-const swaggerJsdoc = require('swagger-jsdoc');
+import swaggerJSDoc from 'swagger-jsdoc';
+import swaggerUi from 'swagger-ui-express';
 
 const options = {
   definition: {
@@ -6,12 +7,12 @@ const options = {
     info: {
       title: 'API de mi-app-next',
       version: '1.0.0',
-      description: 'Documentación con Swagger para mi-app-next',
+      description: 'Documentación de la API con Swagger',
     },
   },
-  apis: ['./src/app/api/**/router.js'],
+  apis: ['./src/app/api/**/*.js'],
 };
 
-const specs = swaggerJsdoc(options);
+const swaggerSpec = swaggerJSDoc(options);
 
-module.exports = { specs };
+export { swaggerUi, swaggerSpec };
